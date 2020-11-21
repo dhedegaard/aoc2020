@@ -1,0 +1,7 @@
+aoc2020/target
+aoc2020/pkg
+
+web/node_modules
+**/.next
+
+yarn*.log
