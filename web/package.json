@@ -19,6 +19,7 @@
     "name": "Dennis Hedegaard"
   },
   "devDependencies": {
+    "@types/node": "^14.14.9",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0"
   }

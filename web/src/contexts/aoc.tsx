@@ -6,7 +6,7 @@ import {
   useReducer,
 } from "react";
 
-export type Aoc = typeof import("/home/dennis/src/aoc2020/aoc2020/pkg/aoc2020");
+export type Aoc = typeof import("../../../aoc2020/pkg/aoc2020");
 
 const AocContext = createContext<Aoc>(undefined as any);
 
