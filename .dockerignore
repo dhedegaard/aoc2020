@@ -6,3 +6,5 @@ web/out
 **/.next
 
 yarn*.log
+.git
+.gitignore
