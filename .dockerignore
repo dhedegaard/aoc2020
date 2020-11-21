@@ -3,6 +3,7 @@ aoc2020/pkg
 
 web/node_modules
 web/out
+out
 **/.next
 
 yarn*.log
