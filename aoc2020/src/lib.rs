@@ -14,3 +14,8 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 pub fn day01__part1(input: &str) -> String {
     day01::part1(input)
 }
+
+#[wasm_bindgen]
+pub fn day01__part2(input: &str) -> String {
+    day01::part2(input)
+}
