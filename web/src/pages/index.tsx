@@ -78,6 +78,24 @@ const Index: NextPage = () => {
                 </button>
               </td>
             </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <button onClick={() => setInput(aoc.day02_input())}>
+                  Load
+                </button>
+              </td>
+              <td>
+                <button onClick={() => setOutput(aoc.day02_part1(input))}>
+                  Solve
+                </button>
+              </td>
+              <td>
+                <button onClick={() => setOutput(aoc.day02_part2(input))}>
+                  Solve
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </Row>

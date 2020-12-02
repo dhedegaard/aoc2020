@@ -7,7 +7,7 @@ RUN cargo install wasm-pack
 
 # Install dependencies.
 COPY aoc2020/  ./
-RUN cargo fetch --locked
+RUN cargo fetch
 
 # Run tests.
 RUN cargo test
