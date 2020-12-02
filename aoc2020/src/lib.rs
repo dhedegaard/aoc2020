@@ -1,6 +1,7 @@
 mod utils;
 
 mod day01;
+mod day02;
 
 use wasm_bindgen::prelude::*;
 
