@@ -13,13 +13,10 @@ fn parse_input(input: &str) -> Vec<Vec<bool>> {
 
 fn part1(input: &str) -> String {
     let grid = parse_input(input);
-    let mut count = 0;
-    for y in 0..grid.len() {
-        if grid[y][(y * 3) % grid[y].len()] {
-            count += 1;
-        }
-    }
-    count.to_string()
+    (0..grid.len())
+        .filter(|&y| grid[y][(y * 3) % grid[y].len()])
+        .count()
+        .to_string()
 }
 
 #[cfg(test)]
