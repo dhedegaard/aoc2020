@@ -12,10 +12,7 @@ fn parse_input(input: &str) -> Vec<Vec<bool>> {
 fn solve(grid: &[Vec<bool>], delta_x: usize, delta_y: usize) -> usize {
     (0..grid.len())
         .step_by(delta_y)
-        .filter(|&step| {
-            println!("step: {}, should do? {}", step, step % delta_y == 0);
-            grid[step][(step / delta_y * delta_x) % grid[step].len()]
-        })
+        .filter(|&step| grid[step][(step / delta_y * delta_x) % grid[step].len()])
         .count()
 }
 
@@ -28,10 +25,7 @@ pub fn part2(input: &str) -> String {
     [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]]
         .iter()
         .map(|&[dx, dy]| solve(&grid, dx, dy))
-        .fold(1, |acc, e| {
-            println!("E: {}, acc: {}", e, acc);
-            acc * e
-        })
+        .fold(1, |acc, e| acc * e)
         .to_string()
 }
 
