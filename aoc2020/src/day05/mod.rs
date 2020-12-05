@@ -8,15 +8,12 @@ pub fn part1(input: &str) -> String {
         .map(|line| {
             let mut rows = [0, 127];
             let mut columns = [0, 7];
-            line.chars().for_each(|c| {
-                println!("rows: {:?} -- columns: {:?}", rows, columns);
-                match c {
-                    'B' => rows[0] += (rows[1] - rows[0] + 1) / 2,
-                    'F' => rows[1] -= (rows[1] - rows[0] + 1) / 2,
-                    'R' => columns[0] += (columns[1] - columns[0] + 1) / 2,
-                    'L' => columns[1] -= (columns[1] - columns[0] + 1) / 2,
-                    _ => unreachable!(),
-                }
+            line.chars().for_each(|c| match c {
+                'B' => rows[0] += (rows[1] - rows[0] + 1) / 2,
+                'F' => rows[1] -= (rows[1] - rows[0] + 1) / 2,
+                'R' => columns[0] += (columns[1] - columns[0] + 1) / 2,
+                'L' => columns[1] -= (columns[1] - columns[0] + 1) / 2,
+                _ => unreachable!(),
             });
             rows[0] * 8 + columns[0]
         })
