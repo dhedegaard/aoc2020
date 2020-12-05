@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useCallback, useState } from "react";
 import { useAoc } from "../contexts/aoc";
 import styled from "styled-components";
+import { uniq } from "lodash";
 
 const Container = styled.div`
   max-width: 800px;
@@ -60,42 +61,38 @@ const Index: NextPage = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>
-                <button onClick={() => setInput(aoc.day01_input())}>
-                  Load
-                </button>
-              </td>
-              <td>
-                <button onClick={() => setOutput(aoc.day01_part1(input))}>
-                  Solve
-                </button>
-              </td>
-              <td>
-                <button onClick={() => setOutput(aoc.day01_part2(input))}>
-                  Solve
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <button onClick={() => setInput(aoc.day02_input())}>
-                  Load
-                </button>
-              </td>
-              <td>
-                <button onClick={() => setOutput(aoc.day02_part1(input))}>
-                  Solve
-                </button>
-              </td>
-              <td>
-                <button onClick={() => setOutput(aoc.day02_part2(input))}>
-                  Solve
-                </button>
-              </td>
-            </tr>
+            {uniq(Object.keys(aoc).map((key) => key.split("_")[0]))
+              .sort()
+              .map((day) => (
+                <tr key={day}>
+                  <td>{day.slice(3)}</td>
+                  <td>
+                    {`${day}_input` in aoc && (
+                      <button onClick={() => setInput(aoc[`${day}_input`]())}>
+                        Load
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    {`${day}_part1` in aoc && (
+                      <button
+                        onClick={() => setOutput(aoc[`${day}_part1`](input))}
+                      >
+                        Solve
+                      </button>
+                    )}
+                  </td>
+                  <td>
+                    {`${day}_part2` in aoc && (
+                      <button
+                        onClick={() => setOutput(aoc[`${day}_part2`](input))}
+                      >
+                        Solve
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </Row>
