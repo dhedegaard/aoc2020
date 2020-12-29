@@ -6,6 +6,7 @@ mod day03;
 mod day04;
 mod day05;
 mod day06;
+mod day08;
 
 use wasm_bindgen::prelude::*;
 
@@ -103,4 +104,14 @@ pub fn day06_part1(input: &str) -> String {
 #[wasm_bindgen]
 pub fn day06_part2(input: &str) -> String {
     day06::part2(input)
+}
+
+#[wasm_bindgen]
+pub fn day08_input() -> String {
+    day08::get_input()
+}
+
+#[wasm_bindgen]
+pub fn day08_part1(input: &str) -> String {
+    day08::part1(input)
 }
